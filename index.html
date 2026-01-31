@@ -1,115 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PHK-BIO</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PHK-BIO | Global Bio Innovation</title>
 
-  <meta name="description" content="PHK-BIO | Global Bio Technology & Life Science Innovation">
-  <meta name="author" content="PHK Holdings">
+<meta name="description" content="PHK-BIO is a global bio-technology company focused on longevity, advanced medicine, and ethical life science innovation.">
+<meta name="author" content="PHK Holdings">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
-
-    body {
-      min-height:100vh;
-      background: linear-gradient(135deg, #24002f, #4b0066, #6a0dad);
-      color:#fff;
-    }
-
-    header {
-      padding:40px 20px;
-      text-align:center;
-    }
-
-    .lang {
-      position:absolute;
-      top:20px;
-      right:20px;
-    }
-
-    .lang button {
-      background:rgba(255,255,255,0.15);
-      color:#fff;
-      border:none;
-      padding:6px 10px;
-      margin-left:5px;
-      border-radius:6px;
-      cursor:pointer;
-    }
-
-    .logo {
-      font-size:42px;
-      font-weight:700;
-      letter-spacing:3px;
-    }
-
-    .subtitle {
-      margin-top:10px;
-      opacity:0.85;
-    }
-
-    main {
-      max-width:1100px;
-      margin:0 auto;
-      padding:40px 20px;
-      text-align:center;
-    }
-
-    section {
-      margin-bottom:70px;
-    }
-
-    h1 {
-      font-size:36px;
-      margin-bottom:20px;
-    }
-
-    p {
-      font-size:18px;
-      line-height:1.8;
-      opacity:0.92;
-    }
-
-    .cards {
-      margin-top:40px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
-
-    .card {
-      background:rgba(255,255,255,0.1);
-      padding:30px;
-      border-radius:18px;
-      backdrop-filter:blur(10px);
-      transition:0.3s;
-    }
-
-    .card:hover {
-      transform:translateY(-8px);
-      background:rgba(255,255,255,0.18);
-    }
-
-    footer {
-      text-align:center;
-      padding:25px;
-      font-size:14px;
-      opacity:0.75;
-    }
-
-    .contact {
-      font-weight:600;
-      opacity:0.9;
-    }
-
-    [dir="rtl"] {
-      direction: rtl;
-      text-align: right;
-    }
-  </style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{
+  background:linear-gradient(135deg,#1e002a,#4b0066,#6a0dad);
+  color:#fff;
+}
+header{
+  padding:60px 20px;
+  text-align:center;
+  position:relative;
+}
+.lang{
+  position:absolute;top:20px;right:20px;
+}
+.lang button{
+  margin-left:6px;
+  padding:6px 10px;
+  border:none;
+  border-radius:6px;
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+  cursor:pointer;
+}
+.logo{
+  font-size:48px;
+  font-weight:700;
+  letter-spacing:4px;
+}
+.subtitle{
+  margin-top:14px;
+  font-size:18px;
+  opacity:.85;
+}
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:60px 20px;
+}
+section{margin-bottom:90px}
+h1{font-size:40px;margin-bottom:20px}
+h2{font-size:28px;margin-bottom:20px}
+p{
+  font-size:18px;
+  line-height:1.9;
+  opacity:.92;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+.card{
+  background:rgba(255,255,255,0.1);
+  padding:32px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-10px);
+  background:rgba(255,255,255,0.2);
+}
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+  opacity:.8;
+}
+.contact{
+  margin-top:10px;
+  font-weight:600;
+}
+[dir="rtl"]{direction:rtl;text-align:right}
+</style>
 </head>
 
 <body>
@@ -121,117 +96,116 @@
     <button onclick="setLang('zh')">CN</button>
     <button onclick="setLang('ar')">AR</button>
   </div>
-
   <div class="logo">PHK-BIO</div>
   <div class="subtitle" id="subtitle"></div>
 </header>
 
 <main id="content">
 
-  <section>
-    <h1 id="title"></h1>
-    <p id="intro"></p>
-  </section>
+<section>
+  <h1 id="title"></h1>
+  <p id="intro"></p>
+</section>
 
-  <section>
-    <div class="cards">
-      <div class="card">
-        <h3 id="c1t"></h3>
-        <p id="c1"></p>
-      </div>
-      <div class="card">
-        <h3 id="c2t"></h3>
-        <p id="c2"></p>
-      </div>
-      <div class="card">
-        <h3 id="c3t"></h3>
-        <p id="c3"></p>
-      </div>
-      <div class="card">
-        <h3 id="c4t"></h3>
-        <p id="c4"></p>
-      </div>
-    </div>
-  </section>
+<section>
+  <h2 id="visionTitle"></h2>
+  <div class="grid">
+    <div class="card"><h3 id="v1t"></h3><p id="v1"></p></div>
+    <div class="card"><h3 id="v2t"></h3><p id="v2"></p></div>
+    <div class="card"><h3 id="v3t"></h3><p id="v3"></p></div>
+  </div>
+</section>
+
+<section>
+  <h2 id="investTitle"></h2>
+  <div class="grid">
+    <div class="card"><p id="i1"></p></div>
+    <div class="card"><p id="i2"></p></div>
+    <div class="card"><p id="i3"></p></div>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  © 2026 PHK Holdings · PHK-BIO <br/>
-  <span class="contact">info@phkbio.com</span>
+  © 2026 PHK Holdings · PHK-BIO  
+  <div class="contact">info@phkbio.com</div>
 </footer>
 
 <script>
-const data = {
-  en: {
-    subtitle:"Bio Technology for the Next Humanity",
-    title:"Global Life Science Innovation",
-    intro:"PHK-BIO is a global bio-technology initiative focused on life science, advanced medicine, genetic research, and sustainable human evolution. We combine science, ethics, and technology to build a healthier and fairer future.",
-    c1t:"Advanced Biotechnology",
-    c1:"Next-generation bio engineering, regenerative medicine, and precision healthcare solutions.",
-    c2t:"Medical Innovation",
-    c2:"Disease prevention, longevity science, and AI-driven medical research.",
-    c3t:"Bio Ethics & Humanity",
-    c3:"Ethical biotechnology aligned with human dignity and global responsibility.",
-    c4t:"Global Impact",
-    c4:"Delivering life-saving bio solutions to all regions without inequality."
-  },
-  ko: {
-    subtitle:"차세대 인류를 위한 바이오 기술",
-    title:"글로벌 생명과학 혁신",
-    intro:"PHK-BIO는 생명공학, 첨단의료, 유전자 연구, 지속 가능한 인류 진화를 목표로 하는 글로벌 바이오 이니셔티브입니다. 과학과 윤리를 결합하여 더 건강하고 공정한 미래를 만듭니다.",
-    c1t:"첨단 바이오 기술",
-    c1:"차세대 생명공학, 재생의학, 정밀 의료 솔루션",
-    c2t:"의료 혁신",
-    c2:"질병 예방, 수명 연장, AI 기반 의료 연구",
-    c3t:"바이오 윤리",
-    c3:"인간 존엄과 세계적 책임을 중심에 둔 기술",
-    c4t:"글로벌 임팩트",
-    c4:"전 세계 모든 인류에게 공정한 바이오 솔루션 제공"
-  },
-  zh: {
-    subtitle:"面向未来人类的生物技术",
-    title:"全球生命科学创新",
-    intro:"PHK-BIO 是一个专注于生命科学、先进医疗、基因研究和人类可持续进化的全球生物技术项目。我们将科学、伦理与技术相结合。",
-    c1t:"先进生物技术",
-    c1:"下一代生物工程、再生医学与精准医疗",
-    c2t:"医疗创新",
-    c2:"疾病预防、延寿科学与人工智能医疗研究",
-    c3t:"生物伦理",
-    c3:"以人类尊严和全球责任为核心",
-    c4t:"全球影响",
-    c4:"为全人类提供公平的生物科技解决方案"
-  },
-  ar: {
-    subtitle:"التكنولوجيا الحيوية لمستقبل الإنسانية",
-    title:"الابتكار العالمي في علوم الحياة",
-    intro:"PHK-BIO مبادرة عالمية تركز على علوم الحياة، الطب المتقدم، أبحاث الجينات، والتطور الإنساني المستدام، مع دمج العلم والأخلاق والتقنية.",
-    c1t:"التكنولوجيا الحيوية المتقدمة",
-    c1:"الهندسة الحيوية، الطب التجديدي، والرعاية الصحية الدقيقة",
-    c2t:"الابتكار الطبي",
-    c2:"الوقاية من الأمراض، إطالة العمر، والطب المعتمد على الذكاء الاصطناعي",
-    c3t:"الأخلاقيات الحيوية",
-    c3:"تقنيات تحترم كرامة الإنسان والمسؤولية العالمية",
-    c4t:"الأثر العالمي",
-    c4:"حلول حيوية عادلة لجميع شعوب العالم"
-  }
+const D={
+en:{
+ subtitle:"Bio Technology & Longevity for the Next Humanity",
+ title:"Building the Future of Human Life Science",
+ intro:"PHK-BIO is a global bio-technology company focused on longevity science, advanced medical innovation, and ethical biotechnology. We aim to redefine healthcare, extend healthy human lifespan, and deliver scalable bio-solutions worldwide.",
+ visionTitle:"Core Technology & Vision",
+ v1t:"Longevity & Regenerative Medicine",
+ v1:"Research and commercialization of life-extension technologies, regenerative treatments, and precision medicine.",
+ v2t:"AI + Bio Data Platform",
+ v2:"Integration of AI-driven bio-data analysis for disease prediction, prevention, and personalized healthcare.",
+ v3t:"Ethical Global Bio Infrastructure",
+ v3:"Technology aligned with human dignity, global accessibility, and sustainable healthcare systems.",
+ investTitle:"Why Investors Choose PHK-BIO",
+ i1:"Massive global demand driven by aging populations and rising healthcare costs.",
+ i2:"Synergy with PHK Holdings ecosystem including finance, AI, robotics, and global infrastructure.",
+ i3:"Multiple exit strategies through licensing, global partnerships, government healthcare programs, and IPO."
+},
+ko:{
+ subtitle:"차세대 인류를 위한 바이오·수명과학",
+ title:"인류 생명과학의 미래를 설계하다",
+ intro:"PHK-BIO는 수명 연장 과학, 첨단 의료 혁신, 윤리적 생명공학을 핵심으로 하는 글로벌 바이오 기업입니다. 우리는 건강 수명 연장과 글로벌 의료 혁신을 목표로 합니다.",
+ visionTitle:"핵심 기술과 비전",
+ v1t:"수명 연장·재생의학",
+ v1:"노화 억제, 재생 치료, 정밀 의료의 연구 및 상용화",
+ v2t:"AI 바이오 데이터",
+ v2:"AI 기반 질병 예측·예방·맞춤형 의료 플랫폼",
+ v3t:"윤리적 글로벌 바이오",
+ v3:"인류 존엄과 공정 접근성을 기반으로 한 기술",
+ investTitle:"투자자가 PHK-BIO를 선택하는 이유",
+ i1:"고령화 사회로 인한 폭발적인 글로벌 수요",
+ i2:"PHK Holdings 금융·AI·로보틱스 생태계와의 시너지",
+ i3:"라이선스·정부·글로벌 파트너십·IPO까지 다양한 회수 전략"
+},
+zh:{
+ subtitle:"面向未来人类的生物与长寿科技",
+ title:"构建人类生命科学的未来",
+ intro:"PHK-BIO 是一家专注于长寿科学、先进医疗和伦理生物技术的全球企业。",
+ visionTitle:"核心技术与愿景",
+ v1t:"长寿与再生医学",
+ v1:"延寿技术、再生治疗和精准医疗",
+ v2t:"AI 生物数据平台",
+ v2:"人工智能驱动的疾病预测与个性化医疗",
+ v3t:"全球生物伦理",
+ v3:"尊重人类尊严的全球健康解决方案",
+ investTitle:"投资 PHK-BIO 的理由",
+ i1:"全球老龄化带来的巨大市场",
+ i2:"与 PHK 集团 AI、金融、科技生态协同",
+ i3:"多元退出路径：授权、合作、上市"
+},
+ar:{
+ subtitle:"التكنولوجيا الحيوية وإطالة العمر لمستقبل البشرية",
+ title:"بناء مستقبل علوم الحياة الإنسانية",
+ intro:"PHK-BIO شركة عالمية متخصصة في علوم إطالة العمر، الطب المتقدم، والتقنيات الحيوية الأخلاقية.",
+ visionTitle:"الرؤية والتقنيات الأساسية",
+ v1t:"إطالة العمر والطب التجديدي",
+ v1:"علاجات متقدمة لإطالة الحياة والطب الدقيق",
+ v2t:"منصة بيانات حيوية بالذكاء الاصطناعي",
+ v2:"تحليل البيانات للتنبؤ بالأمراض والوقاية",
+ v3t:"بنية حيوية أخلاقية",
+ v3:"تقنيات تحترم كرامة الإنسان عالميًا",
+ investTitle:"لماذا يستثمر الشركاء في PHK-BIO",
+ i1:"طلب عالمي متزايد مع الشيخوخة السكانية",
+ i2:"تكامل قوي مع منظومة PHK العالمية",
+ i3:"استراتيجيات خروج متعددة واستدامة طويلة الأمد"
+}
 };
 
 function setLang(l){
-  document.body.dir = (l === 'ar') ? 'rtl' : 'ltr';
-  document.getElementById("subtitle").innerText = data[l].subtitle;
-  document.getElementById("title").innerText = data[l].title;
-  document.getElementById("intro").innerText = data[l].intro;
-  document.getElementById("c1t").innerText = data[l].c1t;
-  document.getElementById("c1").innerText = data[l].c1;
-  document.getElementById("c2t").innerText = data[l].c2t;
-  document.getElementById("c2").innerText = data[l].c2;
-  document.getElementById("c3t").innerText = data[l].c3t;
-  document.getElementById("c3").innerText = data[l].c3;
-  document.getElementById("c4t").innerText = data[l].c4t;
-  document.getElementById("c4").innerText = data[l].c4;
+ document.body.dir=(l==='ar')?'rtl':'ltr';
+ Object.keys(D[l]).forEach(k=>{
+   if(document.getElementById(k)) document.getElementById(k).innerText=D[l][k];
+ });
 }
-
 setLang('en');
 </script>
 
