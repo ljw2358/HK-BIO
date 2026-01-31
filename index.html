@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHK-BIO | 혁신적인 바이오 솔루션</title>
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
 
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fbfd;
+        }
+
+        /* 네비게이션 */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #3498db;
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        /* 메인 콘텐츠 */
+        .container {
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        .section-title .bar {
+            width: 60px;
+            height: 4px;
+            background: #3498db;
+            margin: 10px auto;
+        }
+
+        /* 카드 그리드 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 5px solid #3498db;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        /* 푸터 */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">PHK-<span>BIO</span></div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Innovation for Life</h1>
+        <p>PHK-BIO는 생명 공학의 정밀함과 혁신을 통해 더 나은 미래를 설계합니다.</p>
+    </header>
+
+    <div class="container" id="about">
+        <div class="section-title">
+            <h2>Core Expertise</h2>
+            <div class="bar"></div>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>바이오 분석</h3>
+                <p>최첨단 장비를 활용한 정밀 분자 진단 및 데이터 분석 솔루션을 제공합니다.</p>
+            </div>
+            <div class="card">
+                <h3>연구 개발</h3>
+                <p>지속적인 R&D 투자를 통해 차세대 바이오 의약품의 초석을 다집니다.</p>
+            </div>
+            <div class="card">
+                <h3>친환경 공정</h3>
+                <p>환경을 생각하는 그린 바이오 기술로 지속 가능한 산업 구조를 지향합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <p>&copy; 2026 PHK-BIO. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.7;">형님, 삐니가 만든 코드입니다!</p>
+    </footer>
+
+</body>
+</html>
