@@ -1,213 +1,348 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PHK-BIO | Global Bio Innovation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HK-BIO: Pioneering Human Evolution, Genetic Engineering, and Neural Linkage by Hye-Gong">
+    <title>HK-BIO | Engineering Life</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@100;400;700&family=Noto+Sans+SC:wght@100;400;700&family=Noto+Sans+Arabic:wght@100;400;700&family=JetBrains+Mono:wght@100;400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* [1] BIO-SYSTEM VARIABLES - 생명력을 상징하는 에메랄드와 딥 다크 팔레트 */
+        :root {
+            --bio-green: #00FF95;
+            --dna-blue: #00A3FF;
+            --cell-dark: #05080a;
+            --blood-red: #FF3E3E;
+            --glass-white: rgba(255, 255, 255, 0.08);
+            --transition-slow: all 0.8s cubic-bezier(0.15, 0.85, 0.35, 1);
+        }
 
-<meta name="description" content="PHK-BIO is a global bio-technology company focused on longevity, advanced medicine, and ethical life science innovation.">
-<meta name="author" content="PHK Holdings">
+        /* [2] GLOBAL STYLES */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            background-color: var(--cell-dark); 
+            color: #e0e0e0; 
+            font-family: 'Noto Sans KR', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+        /* [3] DNA STRAND BACKGROUND ANIMATION */
+        .dna-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.15;
+            background: radial-gradient(circle at center, #0a1f1a 0%, #05080a 100%);
+        }
+        .particle {
+            position: absolute; background: var(--bio-green); border-radius: 50%;
+            filter: blur(2px); animation: float 15s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(1); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{
-  background:linear-gradient(135deg,#1e002a,#4b0066,#6a0dad);
-  color:#fff;
-}
-header{
-  padding:60px 20px;
-  text-align:center;
-  position:relative;
-}
-.lang{
-  position:absolute;top:20px;right:20px;
-}
-.lang button{
-  margin-left:6px;
-  padding:6px 10px;
-  border:none;
-  border-radius:6px;
-  background:rgba(255,255,255,0.15);
-  color:#fff;
-  cursor:pointer;
-}
-.logo{
-  font-size:48px;
-  font-weight:700;
-  letter-spacing:4px;
-}
-.subtitle{
-  margin-top:14px;
-  font-size:18px;
-  opacity:.85;
-}
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:60px 20px;
-}
-section{margin-bottom:90px}
-h1{font-size:40px;margin-bottom:20px}
-h2{font-size:28px;margin-bottom:20px}
-p{
-  font-size:18px;
-  line-height:1.9;
-  opacity:.92;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-  margin-top:40px;
-}
-.card{
-  background:rgba(255,255,255,0.1);
-  padding:32px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:.3s;
-}
-.card:hover{
-  transform:translateY(-10px);
-  background:rgba(255,255,255,0.2);
-}
-footer{
-  text-align:center;
-  padding:30px;
-  font-size:14px;
-  opacity:.8;
-}
-.contact{
-  margin-top:10px;
-  font-weight:600;
-}
-[dir="rtl"]{direction:rtl;text-align:right}
-</style>
+        /* [4] NAVIGATION BAR (CLEAN & MODERN) */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(5, 8, 10, 0.9); backdrop-filter: blur(30px);
+            border-bottom: 1px solid rgba(0, 255, 149, 0.2); padding: 20px 60px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-family: 'Orbitron'; font-weight: 900; font-size: 1.8rem; color: #fff; letter-spacing: 3px; }
+        .logo span { color: var(--bio-green); }
+        
+        .lang-control { display: flex; gap: 12px; }
+        .lang-btn {
+            background: transparent; border: 1px solid #333; color: #777;
+            padding: 8px 16px; font-family: 'Orbitron'; font-size: 0.75rem;
+            cursor: pointer; transition: 0.3s; border-radius: 50px;
+        }
+        .lang-btn:hover, .lang-btn.active { 
+            border-color: var(--bio-green); color: var(--bio-green);
+            box-shadow: 0 0 10px rgba(0, 255, 149, 0.3);
+        }
+
+        /* [5] HERO SECTION */
+        .hero {
+            height: 100vh; display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; position: relative;
+        }
+        .hero-title {
+            font-family: 'Orbitron'; font-size: clamp(3rem, 12vw, 8rem); font-weight: 900;
+            background: linear-gradient(to bottom, #fff 40%, var(--bio-green));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .hero-tag { font-family: 'JetBrains Mono'; font-size: 1.1rem; color: var(--dna-blue); letter-spacing: 8px; margin-bottom: 30px; }
+        .hero-desc { max-width: 800px; font-size: 1.2rem; color: #888; margin-bottom: 50px; font-weight: 200; }
+
+        /* [6] SECTION CONTENT */
+        section { padding: 160px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
+        .lang-wrap { display: none; }
+        .lang-wrap.active { display: block; animation: cellGlow 1.2s ease; }
+        @keyframes cellGlow { from {opacity: 0; filter: blur(10px);} to {opacity: 1; filter: blur(0);} }
+
+        h2 { font-family: 'Orbitron'; font-size: 3.5rem; margin-bottom: 70px; display: flex; align-items: center; }
+        h2::before { content: ''; width: 40px; height: 2px; background: var(--bio-green); margin-right: 20px; }
+
+        .bio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+        .bio-card {
+            background: var(--glass-white); border: 1px solid rgba(255,255,255,0.05);
+            padding: 60px; border-radius: 30px; transition: var(--transition-slow);
+            position: relative; overflow: hidden;
+        }
+        .bio-card:hover { 
+            transform: scale(1.02); background: rgba(0, 255, 149, 0.03);
+            border-color: var(--bio-green);
+        }
+        .bio-card h3 { font-family: 'Orbitron'; font-size: 2rem; margin-bottom: 25px; color: var(--bio-green); }
+        .bio-card p { color: #aaa; font-size: 1.1rem; }
+
+        /* [7] TECHNOLOGY TABLE (BIO-TECH SPEC) */
+        .tech-box { margin-top: 100px; background: #000; border: 1px solid #111; padding: 50px; border-radius: 20px; }
+        .tech-table { width: 100%; border-collapse: collapse; }
+        .tech-table th { 
+            text-align: left; padding: 25px; font-family: 'Orbitron'; color: var(--dna-blue);
+            border-bottom: 2px solid var(--dna-blue);
+        }
+        .tech-table td { padding: 25px; border-bottom: 1px solid #111; font-family: 'JetBrains Mono'; color: #888; }
+
+        /* [8] NEURAL LINK STATUS UI */
+        .neural-ui {
+            border-left: 5px solid var(--bio-green); padding: 40px;
+            background: linear-gradient(90deg, rgba(0,255,149,0.05) 0%, transparent 100%);
+            margin-top: 60px; font-family: 'JetBrains Mono';
+        }
+
+        /* [9] FOOTER */
+        footer { padding: 120px 0; background: #020405; text-align: center; border-top: 1px solid #111; }
+        .footer-mail { font-family: 'Orbitron'; font-size: 2.5rem; color: #fff; text-decoration: none; margin: 40px 0; display: block; transition: 0.3s; }
+        .footer-mail:hover { color: var(--bio-green); text-shadow: 0 0 20px var(--bio-green); }
+        .footer-links { display: flex; justify-content: center; gap: 40px; list-style: none; margin-top: 50px; color: #444; font-size: 0.9rem; }
+
+        /* [10] RTL FOR ARABIC */
+        .rtl { direction: rtl; text-align: right; }
+        .rtl h2::before { display: none; }
+        .rtl h2::after { content: ''; width: 40px; height: 2px; background: var(--bio-green); margin-left: 20px; }
+    </style>
 </head>
+<body onload="initBio()">
 
-<body>
+    <div class="dna-bg" id="particles"></div>
 
-<header>
-  <div class="lang">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('ko')">KR</button>
-    <button onclick="setLang('zh')">CN</button>
-    <button onclick="setLang('ar')">AR</button>
-  </div>
-  <div class="logo">PHK-BIO</div>
-  <div class="subtitle" id="subtitle"></div>
-</header>
+    <nav>
+        <div class="logo">HK-<span>BIO</span></div>
+        <div class="lang-control">
+            <button class="lang-btn active" onclick="switchLang('en', this)">ENGLISH</button>
+            <button class="lang-btn" onclick="switchLang('kr', this)">한국어</button>
+            <button class="lang-btn" onclick="switchLang('cn', this)">中文</button>
+            <button class="lang-btn" onclick="switchLang('ar', this)">العربية</button>
+        </div>
+    </nav>
 
-<main id="content">
+    <section class="hero">
+        <div class="hero-tag">GENETIC ARCHITECTURE & NEURAL INTERFACE</div>
+        <h1 class="hero-title">ENGINEERED LIFE</h1>
+        <p class="hero-desc" id="hero-p">HK-BIO, led by Chairman Hye-Gong, is redefining the biological limits of humanity. Through fusion of AI and Biotechnology, we build the future of longevity and human enhancement.</p>
+        <button class="lang-btn" style="padding: 15px 40px; font-size: 0.9rem; color: #fff; border-color: var(--bio-green);" onclick="window.scrollTo(0, 900)">Enter Bio-Lab</button>
+    </section>
 
-<section>
-  <h1 id="title"></h1>
-  <p id="intro"></p>
-</section>
+    <div id="en" class="lang-wrap active">
+        <section>
+            <div class="container">
+                <h2>The Bio-Tech Frontier</h2>
+                <div class="bio-grid">
+                    <div class="bio-card">
+                        <h3>Gene Editing 2.0</h3>
+                        <p>Utilizing HK-proprietary CRISPR-Prime technology to eliminate hereditary diseases before birth. Precision at the molecular level.</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>Neural Interface</h3>
+                        <p>Direct brain-to-machine communication. HK-BIO creates the neural bridge between human consciousness and Figure AI systems.</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>Synthetic Organs</h3>
+                        <p>3D Bio-printing of functional organs with 0% rejection rate, extending human life expectancy beyond 150 years.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<section>
-  <h2 id="visionTitle"></h2>
-  <div class="grid">
-    <div class="card"><h3 id="v1t"></h3><p id="v1"></p></div>
-    <div class="card"><h3 id="v2t"></h3><p id="v2"></p></div>
-    <div class="card"><h3 id="v3t"></h3><p id="v3"></p></div>
-  </div>
-</section>
+        <section style="background: rgba(0, 163, 255, 0.02);">
+            <div class="container">
+                <h2>Clinical Lab Specifications</h2>
+                
+                <div class="tech-box">
+                    <table class="tech-table">
+                        <thead>
+                            <tr>
+                                <th>PROJECT CODE</th>
+                                <th>TECHNOLOGY</th>
+                                <th>SUCCESS RATE</th>
+                                <th>CLINICAL PHASE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>HK-NEURO-01</td><td>Brain-Computer Link</td><td>99.4%</td><td>Phase III</td></tr>
+                            <tr><td>HK-GENE-MOD</td><td>Somatic Cell Editing</td><td>98.9%</td><td>Global Approval</td></tr>
+                            <tr><td>HK-NANO-DOC</td><td>Molecular Repair Bot</td><td>95.2%</td><td>Phase II</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<section>
-  <h2 id="investTitle"></h2>
-  <div class="grid">
-    <div class="card"><p id="i1"></p></div>
-    <div class="card"><p id="i2"></p></div>
-    <div class="card"><p id="i3"></p></div>
-  </div>
-</section>
+    <div id="kr" class="lang-wrap">
+        <section>
+            <div class="container">
+                <h2>생명 공학의 정점</h2>
+                <div class="bio-grid">
+                    <div class="bio-card">
+                        <h3>유전자 최적화</h3>
+                        <p>혜공 형님의 HK-BIO는 차세대 크리스퍼 기술을 통해 유전병을 근본적으로 제거하고, 질병 없는 인류의 탄생을 실현합니다.</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>뉴럴 링크 & 증강</h3>
+                        <p>인간의 뇌와 Figure AI를 직접 연결하여 지능을 증강합니다. 생각만으로 기계를 제어하는 새로운 인류의 탄생입니다.</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>나노 로봇 치료</h3>
+                        <p>혈관을 타고 흐르며 암세포를 즉각 제거하는 지능형 나노 로봇. 수술 없는 치료의 시대를 엽니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-</main>
+        <section>
+            <div class="container">
+                <h2>HK-BIO 글로벌 로드맵</h2>
+                <div class="neural-ui">
+                    > SYSTEM LOG: INITIALIZING BIO-ETHICS PROTOCOL... DONE.<br>
+                    > 2026: 인공 장기 3D 프린팅 상용화 및 글로벌 공급 개시<br>
+                    > 2028: Figure AI 연동 뉴럴 인터페이스 칩 인간 이식 테스트 완료<br>
+                    > 2030: 인류 평균 수명 120세 시대 달성 프로젝트 'Longevity-X' 가동<br>
+                    > STATUS: <span style="color: var(--bio-green);">EVOLUTION IN PROGRESS</span>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<footer>
-  © 2026 PHK Holdings · PHK-BIO  
-  <div class="contact">info@phkbio.com</div>
-</footer>
+    <div id="cn" class="lang-wrap">
+        <section>
+            <div class="container">
+                <h2 style="font-family: 'Noto Sans SC';">生物技术新纪元</h2>
+                <div class="bio-grid">
+                    <div class="bio-card">
+                        <h3>基因编辑技术</h3>
+                        <p>HK-BIO 致力于通过精准基因修复，消除遗传性疾病，提升人类健康水平。</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>人机神经接口</h3>
+                        <p>将人类大脑与 Figure AI 的处理能力结合，实现意识与机器的完美融合。</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>再生医学</h3>
+                        <p>开发功能性生物器官，利用干细胞技术实现受损组织的快速再生。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-<script>
-const D={
-en:{
- subtitle:"Bio Technology & Longevity for the Next Humanity",
- title:"Building the Future of Human Life Science",
- intro:"PHK-BIO is a global bio-technology company focused on longevity science, advanced medical innovation, and ethical biotechnology. We aim to redefine healthcare, extend healthy human lifespan, and deliver scalable bio-solutions worldwide.",
- visionTitle:"Core Technology & Vision",
- v1t:"Longevity & Regenerative Medicine",
- v1:"Research and commercialization of life-extension technologies, regenerative treatments, and precision medicine.",
- v2t:"AI + Bio Data Platform",
- v2:"Integration of AI-driven bio-data analysis for disease prediction, prevention, and personalized healthcare.",
- v3t:"Ethical Global Bio Infrastructure",
- v3:"Technology aligned with human dignity, global accessibility, and sustainable healthcare systems.",
- investTitle:"Why Investors Choose PHK-BIO",
- i1:"Massive global demand driven by aging populations and rising healthcare costs.",
- i2:"Synergy with PHK Holdings ecosystem including finance, AI, robotics, and global infrastructure.",
- i3:"Multiple exit strategies through licensing, global partnerships, government healthcare programs, and IPO."
-},
-ko:{
- subtitle:"차세대 인류를 위한 바이오·수명과학",
- title:"인류 생명과학의 미래를 설계하다",
- intro:"PHK-BIO는 수명 연장 과학, 첨단 의료 혁신, 윤리적 생명공학을 핵심으로 하는 글로벌 바이오 기업입니다. 우리는 건강 수명 연장과 글로벌 의료 혁신을 목표로 합니다.",
- visionTitle:"핵심 기술과 비전",
- v1t:"수명 연장·재생의학",
- v1:"노화 억제, 재생 치료, 정밀 의료의 연구 및 상용화",
- v2t:"AI 바이오 데이터",
- v2:"AI 기반 질병 예측·예방·맞춤형 의료 플랫폼",
- v3t:"윤리적 글로벌 바이오",
- v3:"인류 존엄과 공정 접근성을 기반으로 한 기술",
- investTitle:"투자자가 PHK-BIO를 선택하는 이유",
- i1:"고령화 사회로 인한 폭발적인 글로벌 수요",
- i2:"PHK Holdings 금융·AI·로보틱스 생태계와의 시너지",
- i3:"라이선스·정부·글로벌 파트너십·IPO까지 다양한 회수 전략"
-},
-zh:{
- subtitle:"面向未来人类的生物与长寿科技",
- title:"构建人类生命科学的未来",
- intro:"PHK-BIO 是一家专注于长寿科学、先进医疗和伦理生物技术的全球企业。",
- visionTitle:"核心技术与愿景",
- v1t:"长寿与再生医学",
- v1:"延寿技术、再生治疗和精准医疗",
- v2t:"AI 生物数据平台",
- v2:"人工智能驱动的疾病预测与个性化医疗",
- v3t:"全球生物伦理",
- v3:"尊重人类尊严的全球健康解决方案",
- investTitle:"投资 PHK-BIO 的理由",
- i1:"全球老龄化带来的巨大市场",
- i2:"与 PHK 集团 AI、金融、科技生态协同",
- i3:"多元退出路径：授权、合作、上市"
-},
-ar:{
- subtitle:"التكنولوجيا الحيوية وإطالة العمر لمستقبل البشرية",
- title:"بناء مستقبل علوم الحياة الإنسانية",
- intro:"PHK-BIO شركة عالمية متخصصة في علوم إطالة العمر، الطب المتقدم، والتقنيات الحيوية الأخلاقية.",
- visionTitle:"الرؤية والتقنيات الأساسية",
- v1t:"إطالة العمر والطب التجديدي",
- v1:"علاجات متقدمة لإطالة الحياة والطب الدقيق",
- v2t:"منصة بيانات حيوية بالذكاء الاصطناعي",
- v2:"تحليل البيانات للتنبؤ بالأمراض والوقاية",
- v3t:"بنية حيوية أخلاقية",
- v3:"تقنيات تحترم كرامة الإنسان عالميًا",
- investTitle:"لماذا يستثمر الشركاء في PHK-BIO",
- i1:"طلب عالمي متزايد مع الشيخوخة السكانية",
- i2:"تكامل قوي مع منظومة PHK العالمية",
- i3:"استراتيجيات خروج متعددة واستدامة طويلة الأمد"
-}
-};
+    <div id="ar" class="lang-wrap rtl">
+        <section>
+            <div class="container">
+                <h2>مستقبل التكنولوجيا الحيوية</h2>
+                <div class="bio-grid">
+                    <div class="bio-card">
+                        <h3>تعديل الجينات</h3>
+                        <p>نسعى في HK-BIO إلى القضاء على الأمراض الوراثية من خلال أحدث تقنيات تعديل الحمض النووي.</p>
+                    </div>
+                    <div class="bio-card">
+                        <h3>الواجهة العصبية</h3>
+                        <p>ربط العقل البشري مباشرة بذكاء Figure AI لتعزيز القدرات الإدراكية للبشر.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
-function setLang(l){
- document.body.dir=(l==='ar')?'rtl':'ltr';
- Object.keys(D[l]).forEach(k=>{
-   if(document.getElementById(k)) document.getElementById(k).innerText=D[l][k];
- });
-}
-setLang('en');
-</script>
+    <footer>
+        <div class="container">
+            <div class="logo" style="font-size: 3rem; margin-bottom: 20px;">HK-<span>BIO</span></div>
+            <p style="color: #666; font-size: 1.1rem;">Advancing Life. Evolving Humanity.</p>
+            
+            <a href="mailto:info@hkbio.com" class="footer-mail">info@hkbio.com</a>
+            
+            <ul class="footer-links">
+                <li>Ethical Guidelines</li>
+                <li>Research Publications</li>
+                <li>Global Bio-Security</li>
+                <li>Hye-Gong Foundation</li>
+            </ul>
+            
+            <p style="margin-top: 60px; font-size: 0.8rem; color: #333; font-family: 'JetBrains Mono';">
+                &copy; 2026 HK-BIO LIFE SCIENCES GROUP. ALL RIGHTS RESERVED BY CHAIRMAN HYE-GONG.<br>
+                DESIGNED BY BINI. PROJECT: HUMANITY UPGRADE.
+            </p>
+        </div>
+    </footer>
 
+    <script>
+        // [1] Particle Background Logic
+        function initBio() {
+            const container = document.getElementById('particles');
+            for(let i=0; i<50; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 8 + 4 + 'px';
+                p.style.width = size;
+                p.style.height = size;
+                p.style.left = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 10 + 's';
+                p.style.background = Math.random() > 0.5 ? '#00FF95' : '#00A3FF';
+                container.appendChild(p);
+            }
+            console.log("HK-BIO SYSTEMS CALIBRATED. WELCOME HYE-GONG.");
+        }
+
+        // [2] Language Switcher
+        function switchLang(lang, btn) {
+            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.lang-wrap').forEach(w => w.classList.remove('active'));
+            document.getElementById(lang).classList.add('active');
+
+            if(lang === 'ar') document.body.classList.add('rtl');
+            else document.body.classList.remove('rtl');
+
+            const heroTitles = {
+                en: "ENGINEERED LIFE",
+                kr: "설계된 생명",
+                cn: "人造生命",
+                ar: "الحياة المصممة"
+            };
+            document.querySelector('.hero-title').innerText = heroTitles[lang];
+        }
+
+        // [3] Scroll Interaction
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.bio-card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 100) {
+                    card.style.opacity = '1';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
